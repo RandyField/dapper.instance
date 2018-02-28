@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <!--发件人-->
+  <Sender>
+    <!--<Account>287572291@qq.com</Account>
+    <Password>nmcjnygoophtbgbf</Password>-->
+    <Account>gongzhongpingtai@cnzhiyuanhui.com</Account>
+    <Password>12312313123</Password>
+
+  </Sender>
+
+  <!--收件人-->
+  <receiver>
+    <!--<Account>dqx@zhiyuanhui.com</Account>
+    <Account>jun_yan@zhiyuanhui.com</Account>
+    <Account>zling@zhiyuanhui.com</Account>
+    <Account>zouziliang@zhiyuanhui.com</Account>
+    <Account>smilemoon@zhiyuanhui.com</Account>
+    <Account>db@zhiyuanhui.com</Account>-->
+    <Account>zhailianji@zhiyuanhui.com</Account>
+
+  </receiver>
+
+
+  <!--抄送人-->
+  <CCList>
+    <!--<Account>zhangdeng@zhiyuanhui.com</Account>-->
+  </CCList>
+
+  <!--服务器地址 端口-->
+  <SmtpClient>
+    <!--<Host>smtp.qq.com</Host>
+    <Port>587</Port>-->
+    <Host>mail.cnzhiyuanhui.com</Host>
+    <Port>25</Port>
+  </SmtpClient>
+
+  <!--邮件主题-->
+  <Title>哈尔滨大屏最新故障信息</Title>
+</root>

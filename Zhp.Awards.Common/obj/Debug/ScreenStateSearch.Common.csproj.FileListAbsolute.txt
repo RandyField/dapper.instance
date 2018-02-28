@@ -1,0 +1,16 @@
+E:\GitHub\PersonalFramework\ScreenStateSearch.Common\bin\Debug\ScreenStateSearch.Common.dll.config
+E:\GitHub\PersonalFramework\ScreenStateSearch.Common\bin\Debug\ScreenStateSearch.Common.dll
+E:\GitHub\PersonalFramework\ScreenStateSearch.Common\bin\Debug\ScreenStateSearch.Common.pdb
+E:\GitHub\PersonalFramework\ScreenStateSearch.Common\bin\Debug\Ninject.dll
+E:\GitHub\PersonalFramework\ScreenStateSearch.Common\bin\Debug\Untility.dll
+E:\GitHub\PersonalFramework\ScreenStateSearch.Common\bin\Debug\Newtonsoft.Json.dll
+E:\GitHub\PersonalFramework\ScreenStateSearch.Common\bin\Debug\Untility.pdb
+E:\GitHub\PersonalFramework\ScreenStateSearch.Common\bin\Debug\Ninject.xml
+E:\GitHub\PersonalFramework\ScreenStateSearch.Common\bin\Debug\Newtonsoft.Json.xml
+E:\GitHub\PersonalFramework\ScreenStateSearch.Common\obj\Debug\ScreenStateSearch.Common.csprojResolveAssemblyReference.cache
+E:\GitHub\PersonalFramework\ScreenStateSearch.Common\obj\Debug\ScreenStateSearch.Common.dll
+E:\GitHub\PersonalFramework\ScreenStateSearch.Common\obj\Debug\ScreenStateSearch.Common.pdb
+E:\GitHub\PersonalFramework\ScreenStateSearch.Common\bin\Debug\ScreenStateSearch.Model.dll
+E:\GitHub\PersonalFramework\ScreenStateSearch.Common\bin\Debug\ScreenStateSearch.Model.pdb
+E:\GitHub\PersonalFramework\ScreenStateSearch.Common\bin\Debug\log4net.dll
+E:\GitHub\PersonalFramework\ScreenStateSearch.Common\bin\Debug\log4net.xml

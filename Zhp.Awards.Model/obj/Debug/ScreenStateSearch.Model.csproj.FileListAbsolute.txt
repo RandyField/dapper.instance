@@ -1,0 +1,5 @@
+E:\GitHub\PersonalFramework\ScreenStateSearch.Model\bin\Debug\ScreenStateSearch.Model.dll
+E:\GitHub\PersonalFramework\ScreenStateSearch.Model\bin\Debug\ScreenStateSearch.Model.pdb
+E:\GitHub\PersonalFramework\ScreenStateSearch.Model\obj\Debug\ScreenStateSearch.Model.dll
+E:\GitHub\PersonalFramework\ScreenStateSearch.Model\obj\Debug\ScreenStateSearch.Model.pdb
+E:\GitHub\PersonalFramework\ScreenStateSearch.Model\obj\Debug\ScreenStateSearch.Model.csprojResolveAssemblyReference.cache

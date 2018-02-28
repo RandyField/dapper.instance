@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6421687E-186B-41E9-A610-828FF68BC3C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zhp.Awards.Model</RootNamespace>
+    <AssemblyName>Zhp.Awards.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationModel.cs" />
+    <Compile Include="AwardReceivedModel.cs" />
+    <Compile Include="AwardsInfoModel.cs" />
+    <Compile Include="LCDSearchModel.cs" />
+    <Compile Include="PagerInfoModel.cs" />
+    <Compile Include="SearchConditionModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SYS_LOG_MODEL.cs" />
+    <Compile Include="SYS_MENU_MODEL.cs" />
+    <Compile Include="SYS_ROLE_MODEL.cs" />
+    <Compile Include="SYS_USER_MODEL.cs" />
+    <Compile Include="TRF_WeChatUserInfo.cs" />
+    <Compile Include="TRP_Activity.cs" />
+    <Compile Include="TRP_ActivityAwardDetail.cs" />
+    <Compile Include="TRP_Award.cs" />
+    <Compile Include="TRP_AwardCategory.cs" />
+    <Compile Include="TRP_AwardCategoryProportion.cs" />
+    <Compile Include="TRP_AwardDetail.cs" />
+    <Compile Include="TRP_AwardReceive.cs" />
+    <Compile Include="TRP_AwardType.cs" />
+    <Compile Include="TRP_AwardTypeProportion.cs" />
+    <Compile Include="TRP_Award_bak.cs" />
+    <Compile Include="TRP_ClientLog.cs" />
+    <Compile Include="TRP_ClientLog_bak.cs" />
+    <Compile Include="TRP_OpenCount.cs" />
+    <Compile Include="TRP_QRCodeScanLimited.cs" />
+    <Compile Include="TRP_ScanCount.cs" />
+    <Compile Include="View_Activity.cs" />
+    <Compile Include="View_Award.cs" />
+    <Compile Include="View_AwardCategory.cs" />
+    <Compile Include="View_AwardDetail.cs" />
+    <Compile Include="View_AwardReceive.cs" />
+    <Compile Include="View_AwardType.cs" />
+    <Compile Include="View_ClientLog.cs" />
+    <Compile Include="View_PreciousAward.cs" />
+    <Compile Include="wxPayOrder.cs" />
+    <Compile Include="wxUserInfoModel.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

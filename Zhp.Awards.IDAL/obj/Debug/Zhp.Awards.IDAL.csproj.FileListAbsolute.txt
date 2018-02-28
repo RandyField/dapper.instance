@@ -1,0 +1,7 @@
+E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.IDAL\bin\Debug\Zhp.Awards.IDAL.dll
+E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.IDAL\bin\Debug\Zhp.Awards.IDAL.pdb
+E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.IDAL\bin\Debug\Dapper.dll
+E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.IDAL\bin\Debug\Dapper.xml
+E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.IDAL\obj\Debug\Zhp.Awards.IDAL.dll
+E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.IDAL\obj\Debug\Zhp.Awards.IDAL.pdb
+E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.IDAL\obj\Debug\Zhp.Awards.IDAL.csprojResolveAssemblyReference.cache
