@@ -102,7 +102,7 @@ namespace Zhp.Awards.DAL
         #endregion
 
         #region +更新实体
-        
+
         /// <summary>
         /// 更新实体
         /// </summary>
@@ -207,7 +207,7 @@ namespace Zhp.Awards.DAL
         /// <returns>object</returns>
         public object ExecuteScalar<T>(string cmd, DynamicParameters param, bool flag = true) where T : class, new()
         {
-           
+
             object result = null;
             using (IDbConnection con = new SqlConnection(connection))
             {
@@ -307,36 +307,47 @@ namespace Zhp.Awards.DAL
         /// <param name="param">参数</param>
         /// <param name="flag">true存储过程，false sql语句</param>
         /// <returns>t</returns>
-        public async Task<T> FindOneAsync<T>(string cmd, DynamicParameters param, bool flag = true) where T : class, new()
+        public async  Task<T> FindOneAsync<T>(string cmd, DynamicParameters param, bool flag = true) where T : class, new()
         {
-            IDataReader dataReader = null;
-            using (IDbConnection con = new SqlConnection(connection))
+            try
             {
-                con.Open();
-                if (flag)
+
+
+                IDataReader dataReader = null;
+                using (IDbConnection con = new SqlConnection(connection))
                 {
-                    dataReader = await con.ExecuteReaderAsync(cmd, param, null, null, CommandType.StoredProcedure);
-                }
-                else
-                {
-                    dataReader = await con.ExecuteReaderAsync(cmd, param, null, null, CommandType.Text);
-                }
-                if (dataReader == null || !dataReader.Read()) return null;
-                Type type = typeof(T);
-                T t = new T();
-                foreach (var item in type.GetProperties())
-                {
-                    for (int i = 0; i < dataReader.FieldCount; i++)
+                    con.Open();
+                    if (flag)
                     {
-                        //属性名与查询出来的列名比较
-                        if (item.Name.ToLower() != dataReader.GetName(i).ToLower()) continue;
-                        var kvalue = dataReader[item.Name];
-                        if (kvalue == DBNull.Value) continue;
-                        item.SetValue(t, kvalue, null);
-                        break;
+                        dataReader =await con.ExecuteReaderAsync(cmd, param, null, null, CommandType.StoredProcedure);
                     }
+                    else
+                    {
+                        dataReader =await con.ExecuteReaderAsync(cmd, param, null, null, CommandType.Text);
+                    }
+
+                    if (dataReader == null || !dataReader.Read()) return null;
+                    Type type = typeof(T);
+                    T t = new T();
+                    foreach (var item in type.GetProperties())
+                    {
+                        for (int i = 0; i < dataReader.FieldCount; i++)
+                        {
+                            //属性名与查询出来的列名比较
+                            if (item.Name.ToLower() != dataReader.GetName(i).ToLower()) continue;
+                            var kvalue = dataReader[item.Name];
+                            if (kvalue == DBNull.Value) continue;
+                            item.SetValue(t, kvalue, null);
+                            break;
+                        }
+                    }
+                    return t;
                 }
-                return t;
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
         #endregion
@@ -585,40 +596,5 @@ namespace Zhp.Awards.DAL
             }
         }
         #endregion
-
-        bool IBaseDAL.CreateEntity<T>(string cmd, T entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        T IBaseDAL.RetriveOneEntityById<T>(string cmd, int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<T> IBaseDAL.RetriveAllEntity<T>(string cmd)
-        {
-            throw new NotImplementedException();
-        }
-
-        bool IBaseDAL.UpdateEntity<T>(string cmd, T entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        bool IBaseDAL.DeleteEntityById<T>(string cmd, int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<T> IBaseDAL.FindOneAsync<T>(string cmd, DynamicParameters param, bool flag)
-        {
-            throw new NotImplementedException();
-        }
-
-        int IBaseDAL.ExcuteNonQuery<T>(string cmd, DynamicParameters param, bool flag)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

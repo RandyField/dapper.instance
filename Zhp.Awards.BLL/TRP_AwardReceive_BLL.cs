@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Zhp.Awards.DAL;
 using Zhp.Awards.Model;
+using Zhp.Awards.IDAL;
 
 namespace Zhp.Awards.BLL
 {
@@ -59,7 +60,8 @@ namespace Zhp.Awards.BLL
                     DynamicParameters param = new DynamicParameters();
                     param.Add("AwardDetailId", id);
                     string querysql = @"SELECT * FROM TRP_AwardReceive WHERE AwardDetailId=@AwardDetailId";
-                    model = dapperhelper.FindOneAsync<TRP_AwardReceive>(querysql, param, false);
+                    //model = dapperhelper.FindOneAsync<TRP_AwardReceive>(querysql, param, false);
+                    model =  dapperhelper.FindOneAsync<TRP_AwardReceive>(querysql, param, false);
                 }
             }
             catch (Exception ex)
