@@ -15,13 +15,13 @@ namespace Zhp.Awards.Activity.Controllers
         //    return new string[] { "value1", "value2" };
         //}
 
-        //[Route("api/qrcode/{guid}")]
-        //[HttpGet]
-        //// GET: api/Qrcode/5
-        //public string Get(int guid)
-        //{
-        //    return "value";
-        //}
+        [Route("api/qrcode?guid={guid}&a={name}&b={id}")]
+        [HttpGet]
+        // GET: api/Qrcode/5
+        public string Get(int guid,string name,string id)
+        {
+            return "value";
+        }
 
         [Route("api/qrcode/test/test")]
         [HttpPost]
