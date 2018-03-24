@@ -19,3 +19,6 @@ E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.BLL\bin\Debug\Newtonsoft.Json.xml
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.BLL\obj\Debug\Zhp.Awards.BLL.csprojResolveAssemblyReference.cache
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.BLL\obj\Debug\Zhp.Awards.BLL.dll
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.BLL\obj\Debug\Zhp.Awards.BLL.pdb
+C:\github\dapper.instance\Zhp.Awards.BLL\obj\Debug\Zhp.Awards.BLL.csprojResolveAssemblyReference.cache
+C:\github\dapper.instance\Zhp.Awards.BLL\obj\Debug\Zhp.Awards.BLL.dll
+C:\github\dapper.instance\Zhp.Awards.BLL\obj\Debug\Zhp.Awards.BLL.pdb

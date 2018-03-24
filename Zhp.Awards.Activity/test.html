@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <button value="test post apid" style="height:20px;" onclick="test();"></button>
+</body>
+
+</html>
+<script type="text/javascript">
+    function test() {
+        var ss = { guid: "sdfsdf" };
+        var data = JSON.stringify(ss);
+        $.ajax({
+            type: "post",
+            url: ' api/qrcode/test/test ',
+            data: data,
+            contentType: "application/json",
+            success: function (data) {
+                alert(data);
+            }
+        });
+    }
+</script>

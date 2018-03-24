@@ -87,3 +87,6 @@ E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.Web\bin\zh-Hans\Microsoft.Owin.Securi
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.Web\obj\Debug\Zhp.Awards.Web.csprojResolveAssemblyReference.cache
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.Web\obj\Debug\Zhp.Awards.Web.dll
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.Web\obj\Debug\Zhp.Awards.Web.pdb
+C:\github\dapper.instance\Zhp.Awards.Web\obj\Debug\Zhp.Awards.Web.csprojResolveAssemblyReference.cache
+C:\github\dapper.instance\Zhp.Awards.Web\obj\Debug\Zhp.Awards.Web.dll
+C:\github\dapper.instance\Zhp.Awards.Web\obj\Debug\Zhp.Awards.Web.pdb

@@ -6,3 +6,8 @@ E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.Model\bin\Debug\Zhp.Awards.Model.dll
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.Model\bin\Debug\Zhp.Awards.Model.pdb
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.Model\obj\Debug\Zhp.Awards.Model.dll
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.Model\obj\Debug\Zhp.Awards.Model.pdb
+C:\github\dapper.instance\Zhp.Awards.Model\bin\Debug\Zhp.Awards.Model.dll
+C:\github\dapper.instance\Zhp.Awards.Model\bin\Debug\Zhp.Awards.Model.pdb
+C:\github\dapper.instance\Zhp.Awards.Model\obj\Debug\Zhp.Awards.Model.csprojResolveAssemblyReference.cache
+C:\github\dapper.instance\Zhp.Awards.Model\obj\Debug\Zhp.Awards.Model.dll
+C:\github\dapper.instance\Zhp.Awards.Model\obj\Debug\Zhp.Awards.Model.pdb

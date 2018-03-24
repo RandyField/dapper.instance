@@ -9,3 +9,15 @@ E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.Untility\bin\Debug\zh-Hans\System.Web
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.Untility\bin\Debug\zh-Hans\System.Net.Http.Formatting.resources.dll
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.Untility\obj\Debug\Untility.dll
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.Untility\obj\Debug\Untility.pdb
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Debug\Untility.dll
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Debug\Untility.pdb
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Debug\System.Web.Http.dll
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Debug\System.Net.Http.Formatting.dll
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Debug\Newtonsoft.Json.xml
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Debug\System.Web.Http.xml
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Debug\System.Net.Http.Formatting.xml
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Debug\zh-Hans\System.Web.Http.resources.dll
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Debug\zh-Hans\System.Net.Http.Formatting.resources.dll
+C:\github\dapper.instance\Zhp.Awards.Untility\obj\Debug\Zhp.Awards.Untility.csprojResolveAssemblyReference.cache
+C:\github\dapper.instance\Zhp.Awards.Untility\obj\Debug\Untility.dll
+C:\github\dapper.instance\Zhp.Awards.Untility\obj\Debug\Untility.pdb
