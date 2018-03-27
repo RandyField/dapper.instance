@@ -12,6 +12,16 @@ E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.Common\bin\Debug\Newtonsoft.Json.xml
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.Common\obj\Debug\Zhp.Awards.Common.csprojResolveAssemblyReference.cache
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.Common\obj\Debug\Zhp.Awards.Common.dll
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.Common\obj\Debug\Zhp.Awards.Common.pdb
+C:\github\dapper.instance\Zhp.Awards.Common\bin\Debug\Zhp.Awards.Common.dll.config
+C:\github\dapper.instance\Zhp.Awards.Common\bin\Debug\Zhp.Awards.Common.dll
+C:\github\dapper.instance\Zhp.Awards.Common\bin\Debug\Zhp.Awards.Common.pdb
+C:\github\dapper.instance\Zhp.Awards.Common\bin\Debug\Dapper.dll
+C:\github\dapper.instance\Zhp.Awards.Common\bin\Debug\Untility.dll
+C:\github\dapper.instance\Zhp.Awards.Common\bin\Debug\Zhp.Awards.Model.dll
+C:\github\dapper.instance\Zhp.Awards.Common\bin\Debug\Newtonsoft.Json.dll
+C:\github\dapper.instance\Zhp.Awards.Common\bin\Debug\Zhp.Awards.Model.pdb
+C:\github\dapper.instance\Zhp.Awards.Common\bin\Debug\Untility.pdb
+C:\github\dapper.instance\Zhp.Awards.Common\bin\Debug\Dapper.xml
 C:\github\dapper.instance\Zhp.Awards.Common\obj\Debug\Zhp.Awards.Common.csprojResolveAssemblyReference.cache
 C:\github\dapper.instance\Zhp.Awards.Common\obj\Debug\Zhp.Awards.Common.dll
 C:\github\dapper.instance\Zhp.Awards.Common\obj\Debug\Zhp.Awards.Common.pdb

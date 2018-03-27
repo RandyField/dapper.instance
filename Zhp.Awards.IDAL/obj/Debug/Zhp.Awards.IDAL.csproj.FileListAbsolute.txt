@@ -4,6 +4,10 @@ E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.IDAL\bin\Debug\Dapper.dll
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.IDAL\bin\Debug\Dapper.xml
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.IDAL\obj\Debug\Zhp.Awards.IDAL.dll
 E:\GitHub\Zhp.Awards\Zhp.Awards\Zhp.Awards.IDAL\obj\Debug\Zhp.Awards.IDAL.pdb
+C:\github\dapper.instance\Zhp.Awards.IDAL\bin\Debug\Zhp.Awards.IDAL.dll
+C:\github\dapper.instance\Zhp.Awards.IDAL\bin\Debug\Zhp.Awards.IDAL.pdb
+C:\github\dapper.instance\Zhp.Awards.IDAL\bin\Debug\Dapper.dll
+C:\github\dapper.instance\Zhp.Awards.IDAL\bin\Debug\Dapper.xml
 C:\github\dapper.instance\Zhp.Awards.IDAL\obj\Debug\Zhp.Awards.IDAL.csprojResolveAssemblyReference.cache
 C:\github\dapper.instance\Zhp.Awards.IDAL\obj\Debug\Zhp.Awards.IDAL.dll
 C:\github\dapper.instance\Zhp.Awards.IDAL\obj\Debug\Zhp.Awards.IDAL.pdb

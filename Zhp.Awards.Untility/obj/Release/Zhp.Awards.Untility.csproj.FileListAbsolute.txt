@@ -1,0 +1,13 @@
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Release\Untility.dll
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Release\Untility.pdb
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Release\System.Web.Http.dll
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Release\System.Net.Http.Formatting.dll
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Release\System.Web.Http.xml
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Release\System.Net.Http.Formatting.xml
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Release\zh-Hans\System.Web.Http.resources.dll
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Release\zh-Hans\System.Net.Http.Formatting.resources.dll
+C:\github\dapper.instance\Zhp.Awards.Untility\obj\Release\Untility.dll
+C:\github\dapper.instance\Zhp.Awards.Untility\obj\Release\Untility.pdb
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Release\Newtonsoft.Json.dll
+C:\github\dapper.instance\Zhp.Awards.Untility\bin\Release\Newtonsoft.Json.xml
+C:\github\dapper.instance\Zhp.Awards.Untility\obj\Release\Zhp.Awards.Untility.csprojResolveAssemblyReference.cache

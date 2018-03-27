@@ -52,10 +52,11 @@ namespace Zhp.Awards.BLL
         /// 计数
         /// </summary>
         /// <param name="activityId"></param>
-        public void Count(string activityId)
+        public bool QrOpenCount(string activityId,ref string msg)
         {
             lock (asyncLock)
             {
+                bool success = false;
                 try
                 {
                     DynamicParameters param = new DynamicParameters();
@@ -80,6 +81,7 @@ namespace Zhp.Awards.BLL
                                              ,@ActivityId
                                             )            ";
                             idal.CreateEntity<TRP_OpenCount>(insertsql, entity);
+                            success = true;
                         }
                         else
                         {
@@ -88,13 +90,17 @@ namespace Zhp.Awards.BLL
                             param.Add("ActivityId", activityId);
                             string updatesql = @"UPDATE TRP_OpenCount SET  Count=@Count WHERE ActivityId=@ActivityId";
                             idal.ExcuteNonQuery<TRP_OpenCount>(updatesql, param, false);
+                            success = true;
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    Logger.Error(string.Format("计数异常，异常信息：{0}", ex.ToString()));
+                    msg = "SERVER_ERROR";
+                    Logger.Error(string.Format("点击计数异常，异常信息：{0}", ex.ToString()));
                 }
+
+                return success;
             }
         }
     }
