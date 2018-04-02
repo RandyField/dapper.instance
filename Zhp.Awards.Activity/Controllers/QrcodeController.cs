@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
+using System.Web.Script.Serialization;
 using Zhp.Awards.BLL;
 using Zhp.Awards.Common;
 
@@ -69,7 +71,7 @@ namespace Zhp.Awards.Activity.Controllers
         /// <param name="data"></param>
         [Route("click/count/{activityid}")]
         [HttpGet]
-        public ResponseResult ClickCount(string activityid)
+        public HttpResponseMessage ClickCount(string activityid)
         {
             TRP_OpenCount_BLL bll = TRP_OpenCount_BLL.getInstance();
             string msg = "";
@@ -87,7 +89,10 @@ namespace Zhp.Awards.Activity.Controllers
                 result.return_code = "FAIL";
                 result.return_msg = msg;
             }
-            return result;
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            string str = serializer.Serialize(result);
+            return  new HttpResponseMessage { Content = new StringContent(str, Encoding.GetEncoding("UTF-8"), "application/json") };   
         }
 
         /// <summary>

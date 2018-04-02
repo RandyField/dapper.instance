@@ -68,8 +68,8 @@ namespace Zhp.Awards.BLL
                         if (model == null)
                         {
                             TRP_OpenCount entity = new TRP_OpenCount();
-                            model.ActivityId = activityId;
-                            model.Count = 1;
+                            entity.ActivityId = activityId;
+                            entity.Count = 1;
                             string insertsql = @"INSERT INTO TRP_OpenCount
                                           (
                                               [Count]
