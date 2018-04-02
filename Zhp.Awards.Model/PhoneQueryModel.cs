@@ -11,7 +11,7 @@ namespace Zhp.Awards.Model
         public Nullable<int> ActivityId { get; set; }
         public Nullable<int> AwardDetailId { get; set; }
         public string AwardName { get; set; }
-        public string AwardUrl { get; set; }
+        public string ReceiveImage { get; set; }
         public Nullable<System.DateTime> ReceiveTime { get; set; }
         public Nullable<System.DateTime> SubmitTime { get; set; }
         public string Phone { get; set; }

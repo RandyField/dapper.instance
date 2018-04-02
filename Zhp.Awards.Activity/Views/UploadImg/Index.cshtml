@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>上传奖品图片</title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/ajaxfileupload.js"></script>
+</head>
+<body>
+    <div>
+        <input type="file" id="filePicture" name="filePicture" accept=".jpg,.jpeg,.png,.bmp" onchange="filePictureChange()" />
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    function filePictureChange() {
+        $.ajaxFileUpload({
+            url: "/UploadImg/Upload", //用于文件上传的服务器端请求地址
+            type: "post",
+            secureuri: false, //一般设置为false
+            fileElementId: "filePicture", //文件上传空间的id属性
+            dataType: "json", //返回值类型 一般设置为json
+            success: function (data, status) {  //服务器成功响应处理函数
+                //alert(data.fileName);
+                //alert(data.filePath);
+                //alert(data.fileSize);
+                //返回文件路径
+                //奖品名称
+            },
+            error: function (data, status, e) {  //服务器响应失败处理函数
+                alert(e);
+            }
+        });
+    };
+</script>

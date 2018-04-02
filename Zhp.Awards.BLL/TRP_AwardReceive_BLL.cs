@@ -116,10 +116,13 @@ namespace Zhp.Awards.BLL
                 DynamicParameters param = new DynamicParameters();
                 param.Add("ActivityId", activityid);
                 param.Add("Phone", phone);
-                string querysql = @"SELECT A.ActivityId,A.AwardDetailId,B.AwardName,B.AwardUrl,
+
+                string querysql = @"SELECT A.ActivityId,A.AwardDetailId,C.AwardName,C.ReceiveImage,    
                                     A.ReceiveTime,A.SubmitTime,A.Phone,A.OpenId   
-                                    FROM TRP_AwardReceive A LEFT JOIN  TRP_AwardDetail B ON A.AwardDetailId=B.Id   
-                                    WHERE A.ActivityId=@ActivityId and A.Phone=@Phone";
+                                    FROM TRP_AwardReceive A LEFT JOIN  TRP_Award B ON A.AwardId=B.Id   
+                                    LEFT JOIN TRP_AwardUrl C ON B.AwardName=C.AwardName     
+                                                    WHERE A.ActivityId=@ActivityId and A.Phone=@Phone";
+
                 model = idal.FindOne<PhoneQueryModel>(querysql, param, false);
 
                 //首次参加活动
@@ -175,11 +178,12 @@ namespace Zhp.Awards.BLL
                 DynamicParameters param = new DynamicParameters();
                 param.Add("ActivityId", activityid);
                 param.Add("AwardDetailId", awardid);
-          
-                string querysql = @"SELECT A.ActivityId,A.AwardDetailId,B.AwardName,B.AwardUrl,
-                                                    A.ReceiveTime,A.SubmitTime,A.Phone,A.OpenId   
-                                                    FROM TRP_AwardReceive A LEFT JOIN  TRP_AwardDetail B ON A.AwardDetailId=B.Id   
-                                                    WHERE A.ActivityId=@ActivityId and A.AwardDetailId=@AwardDetailId and A.Phone=@Phone";
+
+                string querysql = @"SELECT A.ActivityId,A.AwardDetailId,C.AwardName,C.ReceiveImage,    
+                                    A.ReceiveTime,A.SubmitTime,A.Phone,A.OpenId   
+                                    FROM TRP_AwardReceive A LEFT JOIN  TRP_Award B ON A.AwardId=B.Id   
+                                    LEFT JOIN TRP_AwardUrl C ON B.AwardName=C.AwardName     
+                                                    WHERE A.ActivityId=@ActivityId and A.Phone=@Phone";
 
 
                 param.Add("Phone", phone);

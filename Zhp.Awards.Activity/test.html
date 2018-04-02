@@ -9,6 +9,8 @@
     <button style="height:20px;" onclick="test();">二维码是否过期</button>
 
     <button style="height:20px;" onclick="count();">二维码扫码计数</button>
+
+    <button style="height:20px;" onclick="getaward();">二维码扫码计数</button>
 </body>
 
 </html>
@@ -34,6 +36,21 @@
         $.ajax({
             type: "post",
             url: ' api/qrcode/is/outofdate ',
+            data: data,
+            contentType: "application/json",
+            success: function (data) {
+                alert(data.return_code);
+                alert(data.return_msg);
+            }
+        });
+    }
+
+    function getaward() {
+        var ss = { activityid: "371",phone:"13880825220" };
+        var data = JSON.stringify(ss);
+        $.ajax({
+            type: "post",
+            url: ' api/award/phone/ ',
             data: data,
             contentType: "application/json",
             success: function (data) {
