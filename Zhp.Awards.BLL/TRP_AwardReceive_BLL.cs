@@ -181,11 +181,15 @@ namespace Zhp.Awards.BLL
                                                     FROM TRP_AwardReceive A LEFT JOIN  TRP_AwardDetail B ON A.AwardDetailId=B.Id   
                                                     WHERE A.ActivityId=@ActivityId and A.AwardDetailId=@AwardDetailId and A.Phone=@Phone";
 
-                string updatesql = @"UPDATE TRP_AwardReceive SET  Phone=@Phone WHERE AwardDetailId=@AwardDetailId and ActivityId=@ActivityId";
+
+                param.Add("Phone", phone);
+                param.Add("SubmitTime", DateTime.Now);
+
+                string updatesql = @"UPDATE TRP_AwardReceive SET  Phone=@Phone,SubmitTime=@SubmitTime WHERE AwardDetailId=@AwardDetailId and ActivityId=@ActivityId";
 
                 success = idal.ExcuteNonQuery<TRP_AwardReceive>(updatesql, param, false) > 0;
 
-                param.Add("Phone", phone);
+
 
                 model = idal.FindOne<PhoneQueryModel>(querysql, param, false);
             }
