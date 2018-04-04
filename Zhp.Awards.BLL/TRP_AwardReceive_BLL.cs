@@ -133,11 +133,17 @@ namespace Zhp.Awards.BLL
                     //请求奖品
                     AwardsInfoModel awardsModel = GetAwardsInfo(activityid);
 
+                    if (string.IsNullOrWhiteSpace(awardsModel.Class))
+                    {
+                        Initialize(activityid);
+                        awardsModel = GetAwardsInfo(activityid);
+                    }
+
                     //解密奖品详情id
                     var detailid = DESEncrypt.Decrypt(awardsModel.id, _key);
 
                     //领奖
-                    model=SavePhone(phone, activityid, detailid);
+                    model = SavePhone(phone, activityid, detailid);
                 }
                 else
                 {
@@ -156,6 +162,7 @@ namespace Zhp.Awards.BLL
             }
             catch (Exception ex)
             {
+                return_code = "FAIL";
                 msg = "SERVER_ERROR";
                 Logger.Error(string.Format("通过电话号码和活动id检索异常，异常信息:{0},phone:{1}，活动id:{2}", ex.ToString(), phone, activityid));
             }
@@ -202,6 +209,88 @@ namespace Zhp.Awards.BLL
                 Logger.Error(string.Format("根据手机号码领取奖品，异常信息:{0},phone:{1}，活动id:{2}", ex.ToString(), phone, activityid));
             }
             return model;
+        }
+
+        /// <summary>
+        /// 判断奖品名称是否重复
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public bool IsExistAwardName(string name,  ref string msg)
+        {
+            bool exist = false;
+            try
+            {
+                DynamicParameters param = new DynamicParameters();
+                param.Add("AwardName", name.Trim());
+
+
+                string querysql = @"SELECT [id]
+                                              ,[AwardName]
+                                              ,[ReceiveImage] FROM [TRP_AwardUrl]    
+                                     WHERE AwardName=@AwardName";
+
+                TRP_AwardUrl model = idal.FindOne<TRP_AwardUrl>(querysql, param, false);
+                if (model != null)
+                {
+                    if (model.AwardName.Trim() == name.Trim())
+                    {
+                        exist = true;
+                    }
+                }
+                
+                msg = "";
+            }
+            catch (Exception ex)
+            {
+                msg = "SERVER_ERROR";
+                Logger.Error(string.Format("判断奖品名称是否存在异常，异常信息:{0}", ex.ToString()));
+            }
+
+            return exist;
+        }
+
+
+        /// <summary>
+        /// 保存奖品名称 奖品路径
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="url"></param>
+        /// <param name="return_code"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        public bool SaveImg(string name, string url, ref string return_code, ref string msg)
+        {
+            bool successs = false;
+            try
+            {
+                DynamicParameters param = new DynamicParameters();
+                param.Add("AwardName", name.Trim());
+                param.Add("ReceiveImage", url.Trim());
+
+                string updatesql = @"INSERT INTO TRP_AwardUrl (AwardName,ReceiveImage) VALUES  (@AwardName,@ReceiveImage)";
+                int i = idal.ExcuteNonQuery<TRP_AwardUrl>(updatesql, param, false);
+
+                if (i > 0)
+                {
+                    successs=true;
+                    return_code = "SUCCESS";
+                }
+                else
+                {
+                    return_code = "FAIL";
+                }
+                
+                msg = "";
+            }
+            catch (Exception ex)
+            {
+                return_code = "FAIL";
+                msg = "SERVER_ERROR";
+                Logger.Error(string.Format("判断奖品名称是否存在异常，异常信息:{0}", ex.ToString()));
+            }
+
+            return successs;
         }
     }
 }

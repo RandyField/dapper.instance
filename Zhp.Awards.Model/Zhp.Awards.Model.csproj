@@ -64,6 +64,7 @@
     <Compile Include="TRP_AwardReceive.cs" />
     <Compile Include="TRP_AwardType.cs" />
     <Compile Include="TRP_AwardTypeProportion.cs" />
+    <Compile Include="TRP_AwardUrl.cs" />
     <Compile Include="TRP_Award_bak.cs" />
     <Compile Include="TRP_ClientLog.cs" />
     <Compile Include="TRP_ClientLog_bak.cs" />

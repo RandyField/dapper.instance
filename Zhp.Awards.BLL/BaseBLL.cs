@@ -25,6 +25,7 @@ namespace Zhp.Awards.BLL
             try
             {
                 HttpHelper httpHelper = new HttpHelper();
+
                 string awards = httpHelper.HttpGet(String.Format("http://www.chinazhihuiping.com:89/RedPacketService/GetRedPacketServie?activityId={0}", activityId), "");
                 if (string.IsNullOrWhiteSpace(awards))
                 {
@@ -39,6 +40,23 @@ namespace Zhp.Awards.BLL
                 Logger.Info(string.Format("根据活动id获取奖品信息异常,异常信息：{0},活动ID：{1}", ex.ToString(), activityId));
             }
             return awardsInfo;
+        }
+
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <param name="activityId"></param>
+        public void Initialize(string activityId)
+        {
+            try
+            {
+                HttpHelper httpHelper = new HttpHelper();
+                string awards = httpHelper.HttpGet(String.Format("http://www.chinazhihuiping.com:89/RedPacketService/IsNewActivity?Id={0}", activityId), "");
+            }
+            catch (Exception ex)
+            {
+                Logger.Info(string.Format("初始化奖品异常,异常信息：{0},活动ID：{1}", ex.ToString(), activityId));
+            }
         }
     }
 }

@@ -252,7 +252,7 @@
         var data = JSON.stringify(ss);
         $.ajax({
             type: "post",
-            url: ' ../api/award/name/is/exist/ ',
+            url: ' /api/award/name/is/exist/ ',
             data: data,
             contentType: "application/json",
             success: function (data) {
@@ -276,7 +276,7 @@
         var jsondata = JSON.stringify(obj);
         $.ajax({
             type: "post",
-            url: ' ../api/award/upload/ ',
+            url: ' /api/award/upload/ ',
             data: jsondata,
             contentType: "application/json",
             success: function (data) {

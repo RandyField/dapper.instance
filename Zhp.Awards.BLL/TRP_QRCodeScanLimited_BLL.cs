@@ -52,7 +52,7 @@ namespace Zhp.Awards.BLL
         /// 判断二维码是否过期
         /// </summary>
         /// <param name="activityId"></param>
-        public bool IsOutofdate(string guid, ref string msg, int times = 3)
+        public bool IsOutofdate(string guid, ref string msg, int times = 1)
         {
             lock (asyncLock)
             {

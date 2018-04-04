@@ -1,0 +1,38 @@
+[2018-04-03 12:15:53,960]  9 -- ERROR -- Error [IsExistAwardName] -- 判断奖品名称是否存在异常，异常信息:System.Data.SqlClient.SqlException (0x80131904): 已成功与服务器建立连接，但是在登录过程中发生错误。 (provider: SSL Provider, error: 0 - 远程主机强迫关闭了一个现有的连接。) ---> System.ComponentModel.Win32Exception (0x80004005): 远程主机强迫关闭了一个现有的连接。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Zhp.Awards.DAL.BaseDAL.FindOne[T](String cmd, DynamicParameters param, Boolean flag) 位置 e:\GitHub\dapper.instance\Zhp.Awards.DAL\BaseDAL.cs:行号 272
+   在 Zhp.Awards.BLL.TRP_AwardReceive_BLL.IsExistAwardName(String name, String& return_code, String& msg) 位置 e:\GitHub\dapper.instance\Zhp.Awards.BLL\TRP_AwardReceive_BLL.cs:行号 226
+ClientConnectionId:c6facc94-db98-41b3-99db-763e4c978dbc
+Error Number:10054,State:0,Class:20
+[2018-04-04 09:23:32,464]  12 -- ERROR -- Error [Upload] -- 服务器地址:/Upload/img/20180404/6D9846A2249ABA9262C31853692672B8.jpg
+[2018-04-04 09:23:36,235]  12 -- ERROR -- Error [Upload] -- 服务器地址:E:\GitHub\dapper.instance\Zhp.Awards.Activity\Upload\img\20180404\6D9846A2249ABA9262C31853692672B8.jpg
+[2018-04-04 09:23:42,669]  12 -- ERROR -- Error [Upload] -- 服务器地址:http://localhost:54104
+[2018-04-04 09:23:43,688]  12 -- ERROR -- Error [Upload] -- 服务器地址:E:\GitHub\dapper.instance\Zhp.Awards.Activity\Upload\img\20180404\6D9846A2249ABA9262C31853692672B8.jpg
+[2018-04-04 09:57:09,571]  9 -- ERROR -- Error [Upload] -- 服务器地址:/Upload/img/20180404/6D9846A2249ABA9262C31853692672B8.jpg
+[2018-04-04 09:59:19,831]  7 -- ERROR -- Error [Upload] -- 服务器地址:/Upload/img/20180404/6D9846A2249ABA9262C31853692672B8.jpg
+[2018-04-04 09:59:21,078]  7 -- ERROR -- Error [Upload] -- 服务器地址:E:\GitHub\dapper.instance\Zhp.Awards.Activity\
+[2018-04-04 09:59:43,002]  7 -- ERROR -- Error [Upload] -- 服务器地址:http://localhost:54104
+[2018-04-04 09:59:49,581]  7 -- ERROR -- Error [Upload] -- 服务器地址:E:\GitHub\dapper.instance\Zhp.Awards.Activity\
+[2018-04-04 10:00:04,481]  11 -- ERROR -- Error [Upload] -- 服务器地址:/Upload/img/20180404/4F9DCF0782CD6C63778ADFFB11B3ADAC.jpg
+[2018-04-04 10:00:06,477]  11 -- ERROR -- Error [Upload] -- 服务器地址:E:\GitHub\dapper.instance\Zhp.Awards.Activity\
+[2018-04-04 10:00:06,477]  11 -- ERROR -- Error [Upload] -- 服务器地址:http://localhost:54104
+[2018-04-04 10:00:06,478]  11 -- ERROR -- Error [Upload] -- 服务器地址:E:\GitHub\dapper.instance\Zhp.Awards.Activity\
+[2018-04-04 10:01:10,677]  5 -- ERROR -- Error [Upload] -- 服务器地址:/Upload/img/20180404/6D9846A2249ABA9262C31853692672B8.jpg
+[2018-04-04 10:01:20,810]  5 -- ERROR -- Error [Upload] -- 服务器地址:E:\GitHub\dapper.instance\Zhp.Awards.Activity\/Upload/img/20180404/6D9846A2249ABA9262C31853692672B8.jpg
+[2018-04-04 10:01:22,145]  5 -- ERROR -- Error [Upload] -- 服务器地址:http://localhost:54104
+[2018-04-04 10:01:23,274]  5 -- ERROR -- Error [Upload] -- 服务器地址:E:\GitHub\dapper.instance\Zhp.Awards.Activity\/Upload/img/20180404/6D9846A2249ABA9262C31853692672B8.jpg
+[2018-04-04 10:06:24,080]  5 -- ERROR -- Error [Upload] -- 服务器地址:/Upload/img/20180404/6D9846A2249ABA9262C31853692672B8.jpg
+[2018-04-04 10:06:25,368]  5 -- ERROR -- Error [Upload] -- 服务器地址:E:\GitHub\dapper.instance\Zhp.Awards.Activity\
+[2018-04-04 10:10:21,500]  7 -- ERROR -- Error [Upload] -- 服务器地址:/Upload/img/20180404/6D9846A2249ABA9262C31853692672B8.jpg
