@@ -7,4 +7,3 @@ E:\GitHub\dapper.instance\Zhp.Awards.Model\bin\Release\Zhp.Awards.Model.dll
 E:\GitHub\dapper.instance\Zhp.Awards.Model\bin\Release\Zhp.Awards.Model.pdb
 E:\GitHub\dapper.instance\Zhp.Awards.Model\obj\Release\Zhp.Awards.Model.dll
 E:\GitHub\dapper.instance\Zhp.Awards.Model\obj\Release\Zhp.Awards.Model.pdb
-E:\GitHub\dapper.instance\Zhp.Awards.Model\obj\Release\Zhp.Awards.Model.csprojResolveAssemblyReference.cache

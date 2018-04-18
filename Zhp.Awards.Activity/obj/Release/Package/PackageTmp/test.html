@@ -17,12 +17,12 @@
 <script type="text/javascript">
     function test() {
         var ss = { guid: "testqrcode" };
-        var data = JSON.stringify(ss);
+        //var data = JSON.stringify(ss);
         $.ajax({
             type: "post",
             url: ' api/qrcode/is/outofdate ',
-            data: data,
-            contentType: "application/json",
+            contentType: "application/x-www-form-urlencoded",
+            data: ss,
             success: function (data) {
                 alert(data.return_code);
                 alert(data.return_msg);
@@ -46,7 +46,7 @@
     }
 
     function getaward() {
-        var ss = { activityid: "371",phone:"13880825220" };
+        var ss = { activityid: "410",phone:"13880825220" };
         var data = JSON.stringify(ss);
         $.ajax({
             type: "post",

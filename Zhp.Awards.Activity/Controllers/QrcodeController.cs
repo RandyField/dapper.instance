@@ -1,6 +1,8 @@
 ﻿using Common.Helper;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -43,25 +45,36 @@ namespace Zhp.Awards.Activity.Controllers
         /// <param name="guid"></param>
         [Route("is/outofdate")]
         [HttpPost]
-        public ResponseResult IsOutofdate(dynamic data)
+        public ResponseResult IsOutofdate([FromBody]JObject data)
         {
-            string guid = data.guid;
-            TRP_QRCodeScanLimited_BLL bll = TRP_QRCodeScanLimited_BLL.getInstance();
             string msg = "";
 
             //返回实体
             ResponseResult result = new ResponseResult();
 
-            if (bll.IsOutofdate(guid, ref msg))
+            if (data["guid"] != null)
             {
-                result.return_code = "SUCCESS";
-                result.return_msg = msg;
+                string guid = data["guid"].ToString();
+
+                TRP_QRCodeScanLimited_BLL bll = TRP_QRCodeScanLimited_BLL.getInstance();
+
+                if (bll.IsOutofdate(guid, ref msg))
+                {
+                    result.return_code = "SUCCESS";
+                }
+                else
+                {
+                    result.return_code = "FAIL";
+                }
             }
             else
             {
                 result.return_code = "FAIL";
-                result.return_msg = msg;
-            }  
+
+                //guid为空
+                msg = "参数不完整";
+            }
+            result.return_msg = msg;
             return result;
         }
 
@@ -73,26 +86,29 @@ namespace Zhp.Awards.Activity.Controllers
         [HttpGet]
         public HttpResponseMessage ClickCount(string activityid)
         {
-            TRP_OpenCount_BLL bll = TRP_OpenCount_BLL.getInstance();
             string msg = "";
 
             //返回实体
             ResponseResult result = new ResponseResult();
 
+            TRP_OpenCount_BLL bll = TRP_OpenCount_BLL.getInstance();
+
+
             if (bll.QrOpenCount(activityid, ref msg))
             {
                 result.return_code = "SUCCESS";
-                result.return_msg = msg;
             }
             else
             {
                 result.return_code = "FAIL";
-                result.return_msg = msg;
             }
 
+            result.return_msg = msg;
+
             JavaScriptSerializer serializer = new JavaScriptSerializer();
+
             string str = serializer.Serialize(result);
-            return  new HttpResponseMessage { Content = new StringContent(str, Encoding.GetEncoding("UTF-8"), "application/json") };   
+            return new HttpResponseMessage { Content = new StringContent(str, Encoding.GetEncoding("UTF-8"), "application/json") };
         }
 
         /// <summary>
@@ -102,28 +118,40 @@ namespace Zhp.Awards.Activity.Controllers
         /// <returns></returns>
         [Route("scan/detail/count")]
         [HttpPost]
-        public ResponseResult ScanDetailCount(dynamic data)
+        public ResponseResult ScanDetailCount([FromBody]JObject data)
         {
-            string activityid = data.activityid;
-            string activityname = data.activityname;
-            string url = data.url;
-
-            TRP_ScanCount_BLL bll = TRP_ScanCount_BLL.getInstance();
             string msg = "";
 
             //返回实体
             ResponseResult result = new ResponseResult();
 
-            if (bll.QrScanCount(activityid, ref msg,activityname,url))
+            if (data["activityid"] != null
+                    && data["activityname"] != null
+                    && data["url"] != null)
             {
-                result.return_code = "SUCCESS";
-                result.return_msg = msg;
+                string activityid = data["activityid"].ToString();
+                string activityname = data["activityname"].ToString();
+                string url = data["url"].ToString();
+
+                TRP_ScanCount_BLL bll = TRP_ScanCount_BLL.getInstance();
+
+
+                if (bll.QrScanCount(activityid, ref msg, activityname, url))
+                {
+                    result.return_code = "SUCCESS";
+                }
+                else
+                {
+                    result.return_code = "FAIL";           
+                }
             }
             else
             {
                 result.return_code = "FAIL";
-                result.return_msg = msg;
+                msg = "参数不完整";
             }
+
+            result.return_msg = msg;
             return result;
 
         }

@@ -47,21 +47,21 @@ namespace Zhp.Awards.Activity.Controllers
             //相对路径
             string virtualPath = string.Format("/Upload/img/{0}/{1}{2}", uploadDate, strHashData, FileEextension);
 
-            Logger.Error(string.Format("服务器地址:{0}", virtualPath));
+            //Logger.Error(string.Format("相对路径地址:{0}", virtualPath));
 
             //服务器绝对路径
             string fullFileName = Server.MapPath(Request.ApplicationPath + virtualPath);
 
-            Logger.Error(string.Format("服务器地址:{0}", fullFileName));
+            //Logger.Error(string.Format("服务器绝对路径:{0}", fullFileName));
 
             //服务器URI
             string server = Request.Url.AbsoluteUri.Replace(Request.Url.AbsolutePath, "") + Request.ApplicationPath;
 
-            Logger.Error(string.Format("服务器地址:{0}", server));
+            //Logger.Error(string.Format("服务器URI:{0}", server));
             //img URI
             string imguri =server+virtualPath;
 
-            Logger.Error(string.Format("服务器地址:{0}", fullFileName));
+            //Logger.Error(string.Format("img URI:{0}", imguri));
 
             //创建文件夹，保存文件
             string path = Path.GetDirectoryName(fullFileName);

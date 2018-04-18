@@ -75,6 +75,7 @@
     <Compile Include="Helper\SqlHelperParameterCache.cs" />
     <Compile Include="ResponseResult.cs" />
     <Compile Include="ReturnInfo.cs" />
+    <Compile Include="RSAhelper.cs" />
     <Compile Include="Session\AccountInfo.cs" />
     <Compile Include="Session\CacheDictionary.cs" />
     <Compile Include="Session\UserSession.cs" />

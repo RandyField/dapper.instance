@@ -36,3 +36,52 @@ Error Number:10054,State:0,Class:20
 [2018-04-04 10:06:24,080]  5 -- ERROR -- Error [Upload] -- 服务器地址:/Upload/img/20180404/6D9846A2249ABA9262C31853692672B8.jpg
 [2018-04-04 10:06:25,368]  5 -- ERROR -- Error [Upload] -- 服务器地址:E:\GitHub\dapper.instance\Zhp.Awards.Activity\
 [2018-04-04 10:10:21,500]  7 -- ERROR -- Error [Upload] -- 服务器地址:/Upload/img/20180404/6D9846A2249ABA9262C31853692672B8.jpg
+[2018-04-09 14:26:24,142]  7 -- INFO  -- Info [GenerateKeys] -- 生成的RSA密钥的路径: F:\\RSA\ [RSA.Pub, RSA.Private]
+[2018-04-09 14:30:43,135]  7 -- INFO  -- Info [GenerateKeys] -- 生成的RSA密钥的路径: F:\\RSA\ [RSA.Pub, RSA.Private]
+[2018-04-09 14:34:25,324]  9 -- INFO  -- Info [GenerateKeys] -- 生成的RSA密钥的路径: F:\\RSA\ [RSA.Pub, RSA.Private]
+[2018-04-09 14:35:41,441]  5 -- INFO  -- Info [GenerateKeys] -- 生成的RSA密钥的路径: F:\\RSA\ [RSA.Pub, RSA.Private]
+[2018-04-09 14:37:07,135]  9 -- INFO  -- Info [GenerateKeys] -- 生成的RSA密钥的路径: F:\\RSA\ [RSA.Pub, RSA.Private]
+[2018-04-18 10:58:14,999]  10 -- INFO  -- Info [IsAttend] -- 奖品获取失败，奖品初始化
+[2018-04-18 11:00:15,977]  5 -- ERROR -- Error [SaveLog] -- 写数据库日志异常，异常信息:System.Data.SqlClient.SqlException (0x80131904): 列名 'CreateTime' 无效。
+列名 'Description' 无效。
+列名 'DeleteMark' 无效。
+列名 'Enable' 无效。
+列名 'IPAddress' 无效。
+列名 'PageDesc' 无效。
+列名 'PageUrl' 无效。
+列名 'ActivityId' 无效。
+列名 'ReceiveImage' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader)
+   在 Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command)
+   在 Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Zhp.Awards.DAL.BaseDAL.CreateEntity[T](String cmd, T entity) 位置 e:\GitHub\dapper.instance\Zhp.Awards.DAL\BaseDAL.cs:行号 61
+   在 Zhp.Awards.BLL.TRP_ClientLog_BLL.SaveLog(TRP_ClientLog model) 位置 e:\GitHub\dapper.instance\Zhp.Awards.BLL\TRP_ClientLog_BLL.cs:行号 77
+ClientConnectionId:57412d56-f916-4325-9479-3344e2e984bd
+Error Number:207,State:1,Class:16
+[2018-04-18 11:04:59,482]  5 -- ERROR -- Error [IsAttend] -- 通过电话号码和活动id检索异常，异常信息:System.Data.SqlClient.SqlException (0x80131904): 已成功与服务器建立连接，但是在登录过程中发生错误。 (provider: SSL Provider, error: 0 - 远程主机强迫关闭了一个现有的连接。) ---> System.ComponentModel.Win32Exception (0x80004005): 远程主机强迫关闭了一个现有的连接。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Zhp.Awards.DAL.BaseDAL.FindOne[T](String cmd, DynamicParameters param, Boolean flag) 位置 e:\GitHub\dapper.instance\Zhp.Awards.DAL\BaseDAL.cs:行号 272
+   在 Zhp.Awards.BLL.TRP_AwardReceive_BLL.IsAttend(String phone, String activityid, String& return_code, String& msg) 位置 e:\GitHub\dapper.instance\Zhp.Awards.BLL\TRP_AwardReceive_BLL.cs:行号 126
+ClientConnectionId:6312c36e-f71f-4414-8ed4-c707292fd4f1
+Error Number:10054,State:0,Class:20,phone:13880825220，活动id:410

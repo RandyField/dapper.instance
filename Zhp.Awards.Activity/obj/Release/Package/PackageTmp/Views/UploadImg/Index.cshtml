@@ -202,6 +202,7 @@
 </html>
 <script type="text/javascript">
     var imguri = "";
+    var flag = false;
     function filePictureChange() {
         $.ajaxFileUpload({
             url: "Upload", //用于文件上传的服务器端请求地址
@@ -239,20 +240,33 @@
             });
             return;
         }
-        if ($.trim(imguri) == "") {
-            swal({
-                title: "提示",
-                text: "请上传图片",
-                icon: "error",
-            });
-            return;
+        if (!flag) {
+            if ($.trim(imguri) == "") {
+                swal({
+                    title: "提示",
+                    text: "请上传图片",
+                    icon: "error",
+                });
+                return;
+            }
         }
-
+        else {
+            if ($.trim(imguri) == "") {
+                swal({
+                    title: "提示",
+                    text: "请重新上传新的图片",
+                    icon: "error",
+                });
+                return;
+            }
+        }
+       
+        
         var ss = { awardname: name };
         var data = JSON.stringify(ss);
         $.ajax({
             type: "post",
-            url: ' /api/award/name/is/exist/ ',
+            url: ' ../api/award/name/is/exist/ ',
             data: data,
             contentType: "application/json",
             success: function (data) {
@@ -271,12 +285,12 @@
         });
     }
 
-    function saveurl(name, imguri) {
-        var obj = { awardname: name, url: imguri }
+    function saveurl(name, uri) {
+        var obj = { awardname: name, url: uri }
         var jsondata = JSON.stringify(obj);
         $.ajax({
             type: "post",
-            url: ' /api/award/upload/ ',
+            url: ' ../api/award/upload/ ',
             data: jsondata,
             contentType: "application/json",
             success: function (data) {
@@ -286,6 +300,10 @@
                         text: "保存成功",
                         icon: "success",
                     });
+
+                    //保存成功后 图片uri 置为空
+                    imguri = "";
+                    flag = true;
                 }
                 else {
                     swal({

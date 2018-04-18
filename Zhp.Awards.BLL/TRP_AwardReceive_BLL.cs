@@ -30,6 +30,11 @@ namespace Zhp.Awards.BLL
         private TRP_AwardReceive_BLL() { }
 
         /// <summary>
+        /// 线程锁
+        /// </summary>
+        private static readonly object asyncLock = new object();
+
+        /// <summary>
         /// 公用方法getInstance()提供该类实例的唯一全局访问点
         /// </summary>
         /// <returns></returns>
@@ -101,72 +106,79 @@ namespace Zhp.Awards.BLL
         }
 
         /// <summary>
-        /// 通过电话号码和活动id 检索
+        /// 通过电话号码和活动id发奖
         /// </summary>
         /// <param name="phone"></param>
         /// <param name="activityid"></param>
         /// <param name="return_code"></param>
         /// <param name="msg"></param>
         /// <returns></returns>
-        public PhoneQueryModel IsAttend(string phone, string activityid, ref string return_code, ref string msg)
+        public PhoneQueryModel GetAwards(string phone, string activityid, ref string return_code, ref string msg)
         {
-            PhoneQueryModel model = null;
-            try
+            lock (asyncLock)
             {
-                DynamicParameters param = new DynamicParameters();
-                param.Add("ActivityId", activityid);
-                param.Add("Phone", phone);
+                PhoneQueryModel model = null;
+                try
+                {
+                    DynamicParameters param = new DynamicParameters();
+                    param.Add("ActivityId", activityid);
+                    param.Add("Phone", phone);
 
-                string querysql = @"SELECT A.ActivityId,A.AwardDetailId,C.AwardName,C.ReceiveImage,    
+                    string querysql = @"SELECT A.ActivityId,A.AwardDetailId,C.AwardName,C.ReceiveImage,    
                                     A.ReceiveTime,A.SubmitTime,A.Phone,A.OpenId   
                                     FROM TRP_AwardReceive A LEFT JOIN  TRP_Award B ON A.AwardId=B.Id   
                                     LEFT JOIN TRP_AwardUrl C ON B.AwardName=C.AwardName     
                                                     WHERE A.ActivityId=@ActivityId and A.Phone=@Phone";
 
-                model = idal.FindOne<PhoneQueryModel>(querysql, param, false);
+                    model = idal.FindOne<PhoneQueryModel>(querysql, param, false);
 
-                //首次参加活动
-                if (model == null)
-                {
-                    return_code = "FIRST_TIME";
-
-                    //请求奖品
-                    AwardsInfoModel awardsModel = GetAwardsInfo(activityid);
-
-                    if (string.IsNullOrWhiteSpace(awardsModel.Class))
+                    //首次参加活动
+                    if (model == null)
                     {
-                        Initialize(activityid);
-                        awardsModel = GetAwardsInfo(activityid);
+                        return_code = "FIRST_TIME";
+
+                        //请求奖品
+                        AwardsInfoModel awardsModel = GetAwardsInfo(activityid);
+
+                        if (string.IsNullOrWhiteSpace(awardsModel.Class))
+                        {
+                            //奖品初始化
+                            Initialize(activityid);
+
+                            Logger.Info("奖品获取失败，奖品初始化");
+
+                            awardsModel = GetAwardsInfo(activityid);
+                        }
+
+                        //解密奖品详情id
+                        var detailid = DESEncrypt.Decrypt(awardsModel.id, _key);
+
+                        //领奖
+                        model = SavePhone(phone, activityid, detailid);
                     }
-
-                    //解密奖品详情id
-                    var detailid = DESEncrypt.Decrypt(awardsModel.id, _key);
-
-                    //领奖
-                    model = SavePhone(phone, activityid, detailid);
-                }
-                else
-                {
-                    //已参加活动，但是还未领取
-                    if (model.ReceiveTime == null)
-                    {
-                        return_code = "WAIT_RECEIVE";
-                    }
-
-                    //已参加活动，且已领取
                     else
                     {
-                        return_code = "ATTENDED";
+                        //已参加活动，但是还未领取
+                        if (model.ReceiveTime == null)
+                        {
+                            return_code = "WAIT_RECEIVE";
+                        }
+
+                        //已参加活动，且已领取
+                        else
+                        {
+                            return_code = "ATTENDED";
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    return_code = "FAIL";
+                    msg = "SERVER_ERROR";
+                    Logger.Error(string.Format("通过电话号码和活动id检索异常，异常信息:{0},phone:{1}，活动id:{2}", ex.ToString(), phone, activityid));
+                }
+                return model;
             }
-            catch (Exception ex)
-            {
-                return_code = "FAIL";
-                msg = "SERVER_ERROR";
-                Logger.Error(string.Format("通过电话号码和活动id检索异常，异常信息:{0},phone:{1}，活动id:{2}", ex.ToString(), phone, activityid));
-            }
-            return model;
         }
 
         /// <summary>
@@ -216,7 +228,7 @@ namespace Zhp.Awards.BLL
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public bool IsExistAwardName(string name,  ref string msg)
+        public bool IsExistAwardName(string name, ref string msg)
         {
             bool exist = false;
             try
@@ -238,7 +250,7 @@ namespace Zhp.Awards.BLL
                         exist = true;
                     }
                 }
-                
+
                 msg = "";
             }
             catch (Exception ex)
@@ -273,14 +285,14 @@ namespace Zhp.Awards.BLL
 
                 if (i > 0)
                 {
-                    successs=true;
+                    successs = true;
                     return_code = "SUCCESS";
                 }
                 else
                 {
                     return_code = "FAIL";
                 }
-                
+
                 msg = "";
             }
             catch (Exception ex)

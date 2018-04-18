@@ -2,6 +2,7 @@
 using Dapper;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,6 +55,13 @@ namespace Zhp.Awards.BLL
         /// <param name="activityId"></param>
         public bool IsOutofdate(string guid, ref string msg, int times = 1)
         {
+            int _qrcodetimes = Convert.ToInt32(ConfigurationManager.AppSettings["qrcodetimes"]);
+
+            if (_qrcodetimes>times)
+            {
+                times = _qrcodetimes;
+            }
+
             lock (asyncLock)
             {
                 bool success = false;

@@ -50,9 +50,9 @@ namespace Zhp.Awards.BLL
         {
             try
             {
-                string insertsql = @"INSERT INTO TRF_WeChatUserInfo
+                string insertsql = @"INSERT INTO [TRP_ClientLog]
                                           (
-                                               [CreateTime]
+                                              [CreateTime]
                                               ,[Description]
                                               ,[DeleteMark]
                                               ,[Enable]
