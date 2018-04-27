@@ -26,6 +26,11 @@ namespace Zhp.Awards.BLL
         private TRF_WeChatUserInfo_BLL() { }
 
         /// <summary>
+        /// 线程锁
+        /// </summary>
+        private static object asyncLock = new object();
+
+        /// <summary>
         /// 公用方法getInstance()提供该类实例的唯一全局访问点
         /// </summary>
         /// <returns></returns>

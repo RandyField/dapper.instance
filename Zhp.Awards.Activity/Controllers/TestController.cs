@@ -9,8 +9,9 @@ using Zhp.Awards.Common;
 namespace Zhp.Awards.Activity.Controllers
 {
     [RoutePrefix("api/test")]
-    public class TestController : ApiController
+    public class TestController : BaseApiController
     {
+
         /// <summary>
         /// rsa测试
         /// </summary>

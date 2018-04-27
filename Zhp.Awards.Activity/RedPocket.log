@@ -85,3 +85,21 @@ Error Number:207,State:1,Class:16
    在 Zhp.Awards.BLL.TRP_AwardReceive_BLL.IsAttend(String phone, String activityid, String& return_code, String& msg) 位置 e:\GitHub\dapper.instance\Zhp.Awards.BLL\TRP_AwardReceive_BLL.cs:行号 126
 ClientConnectionId:6312c36e-f71f-4414-8ed4-c707292fd4f1
 Error Number:10054,State:0,Class:20,phone:13880825220，活动id:410
+[2018-04-23 10:55:26,637]  8 -- ERROR -- Error [GetAwards] -- 通过电话号码和活动id检索异常，异常信息:System.Data.SqlClient.SqlException (0x80131904): 已成功与服务器建立连接，但是在登录过程中发生错误。 (provider: SSL Provider, error: 0 - 远程主机强迫关闭了一个现有的连接。) ---> System.ComponentModel.Win32Exception (0x80004005): 远程主机强迫关闭了一个现有的连接。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Zhp.Awards.DAL.BaseDAL.FindOne[T](String cmd, DynamicParameters param, Boolean flag) 位置 e:\GitHub\Zhp.Awards.Phone\Zhp.Awards.DAL\BaseDAL.cs:行号 272
+   在 Zhp.Awards.BLL.TRP_AwardReceive_BLL.GetAwards(String phone, String activityid, String& return_code, String& msg) 位置 e:\GitHub\Zhp.Awards.Phone\Zhp.Awards.BLL\TRP_AwardReceive_BLL.cs:行号 133
+ClientConnectionId:965d98e4-5231-43c1-be20-3bbaf473e2b4
+Error Number:10054,State:0,Class:20,phone:13880825220，活动id:429

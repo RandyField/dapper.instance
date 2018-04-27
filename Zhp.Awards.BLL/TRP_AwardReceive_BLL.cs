@@ -142,19 +142,25 @@ namespace Zhp.Awards.BLL
 
                         if (string.IsNullOrWhiteSpace(awardsModel.Class))
                         {
-                            //奖品初始化
                             Initialize(activityid);
-
-                            Logger.Info("奖品获取失败，奖品初始化");
+                            //奖品初始化
 
                             awardsModel = GetAwardsInfo(activityid);
                         }
 
-                        //解密奖品详情id
-                        var detailid = DESEncrypt.Decrypt(awardsModel.id, _key);
+                        if (awardsModel != null
+                            && string.IsNullOrWhiteSpace(awardsModel.Class))
+                        {
+                            return_code = "NO_AWARDS";
+                        }
+                        else
+                        {
+                            //解密奖品详情id
+                            var detailid = DESEncrypt.Decrypt(awardsModel.id, _key);
 
-                        //领奖
-                        model = SavePhone(phone, activityid, detailid);
+                            //领奖
+                            model = SavePhone(phone, activityid, detailid);
+                        }
                     }
                     else
                     {

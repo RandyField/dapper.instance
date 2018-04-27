@@ -10,7 +10,7 @@
 
     <button style="height:20px;" onclick="count();">二维码扫码计数</button>
 
-    <button style="height:20px;" onclick="getaward();">二维码扫码计数</button>
+    <button style="height:20px;" onclick="getaward();">获取奖品</button>
 </body>
 
 </html>
@@ -46,7 +46,7 @@
     }
 
     function getaward() {
-        var ss = { activityid: "410",phone:"13880825220" };
+        var ss = { activityid: "429", phone: "13880825228" };
         var data = JSON.stringify(ss);
         $.ajax({
             type: "post",

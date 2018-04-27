@@ -26,3 +26,17 @@ E:\GitHub\dapper.instance\Zhp.Awards.Common\bin\Release\Newtonsoft.Json.xml
 E:\GitHub\dapper.instance\Zhp.Awards.Common\obj\Release\Zhp.Awards.Common.csprojResolveAssemblyReference.cache
 E:\GitHub\dapper.instance\Zhp.Awards.Common\obj\Release\Zhp.Awards.Common.dll
 E:\GitHub\dapper.instance\Zhp.Awards.Common\obj\Release\Zhp.Awards.Common.pdb
+E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.Common\bin\Release\Zhp.Awards.Common.dll.config
+E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.Common\bin\Release\Zhp.Awards.Common.dll
+E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.Common\bin\Release\Zhp.Awards.Common.pdb
+E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.Common\bin\Release\Dapper.dll
+E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.Common\bin\Release\Untility.dll
+E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.Common\bin\Release\Zhp.Awards.Model.dll
+E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.Common\bin\Release\Newtonsoft.Json.dll
+E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.Common\bin\Release\Zhp.Awards.Model.pdb
+E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.Common\bin\Release\Untility.pdb
+E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.Common\bin\Release\Dapper.xml
+E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.Common\bin\Release\Newtonsoft.Json.xml
+E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.Common\obj\Release\Zhp.Awards.Common.csprojResolveAssemblyReference.cache
+E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.Common\obj\Release\Zhp.Awards.Common.dll
+E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.Common\obj\Release\Zhp.Awards.Common.pdb

@@ -50,6 +50,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -70,6 +71,7 @@
     <Compile Include="Helper\ParseErrorCode.cs" />
     <Compile Include="Helper\SecureHelper.cs" />
     <Compile Include="Helper\Strings.cs" />
+    <Compile Include="Helper\ValidateCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helper\SqlHelper.cs" />
     <Compile Include="Helper\SqlHelperParameterCache.cs" />

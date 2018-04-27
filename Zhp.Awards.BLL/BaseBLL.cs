@@ -14,6 +14,7 @@ namespace Zhp.Awards.BLL
     public class BaseBLL
     {
         public readonly string _key = ConfigurationManager.AppSettings["encryption"];
+
         /// <summary>
         /// 请求奖品
         /// </summary>
@@ -48,15 +49,41 @@ namespace Zhp.Awards.BLL
         /// <param name="activityId"></param>
         public void Initialize(string activityId)
         {
+
             try
             {
+
                 HttpHelper httpHelper = new HttpHelper();
-                string awards = httpHelper.HttpGet(String.Format("http://www.chinazhihuiping.com:89/RedPacketService/IsNewActivity?Id={0}", activityId), "");
+                string res = httpHelper.HttpGet(String.Format("http://www.chinazhihuiping.com:89/RedPacketService/IsNewActivity?Id={0}", activityId), "");
+
+                Result re = new Result();
+                re = JsonConvert.DeserializeObject<Result>(res);
+
+                int i = 0;
+
+                while (re.IsSuccess != "0")
+                {
+                    res = httpHelper.HttpGet(String.Format("http://www.chinazhihuiping.com:89/RedPacketService/IsNewActivity?Id={0}", activityId), "");
+                    re = JsonConvert.DeserializeObject<Result>(res);
+                    i++;
+                    if (i == 2)
+                    {
+                        break;
+                    }
+
+                }
+
             }
             catch (Exception ex)
             {
                 Logger.Info(string.Format("初始化奖品异常,异常信息：{0},活动ID：{1}", ex.ToString(), activityId));
             }
+        }
+
+        private class Result
+        {
+            public string IsSuccess { get; set; }
+            public string Message { get; set; }
         }
     }
 }

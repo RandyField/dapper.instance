@@ -61,6 +61,13 @@ namespace Zhp.Awards.Activity.Controllers
                     RecordLog(activityid, string.Format("【再次参与】用户输入相同手机号码:{0}，获取未领取奖品，时间:{1}", phone, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
                       "输入相同手机号码，再次参与,获取未领取奖品", HttpContext.Current.Request.UserHostAddress, HttpContext.Current.Request.Url.AbsoluteUri, model.ReceiveImage);
                 }
+                else if (return_code == "NO_AWARDS")
+                {
+                    result.return_code = return_code;
+                    result.return_info = model;
+                    RecordLog(activityid, string.Format("【获取奖品】用户输入手机号码:{0}，未获取到奖品，时间:{1}", phone, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
+                      "输入手机号码，未获取到奖品", HttpContext.Current.Request.UserHostAddress, HttpContext.Current.Request.Url.AbsoluteUri);
+                }
             }
             else
             {
