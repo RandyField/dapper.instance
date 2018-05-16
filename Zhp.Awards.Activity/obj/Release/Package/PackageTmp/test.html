@@ -11,6 +11,10 @@
     <button style="height:20px;" onclick="count();">二维码扫码计数</button>
 
     <button style="height:20px;" onclick="getaward();">获取奖品</button>
+
+    <button style="height:20px;" onclick="getaward1();">获取奖品</button>
+
+    <button style="height:20px;" onclick="receive();">领取奖品</button>
 </body>
 
 </html>
@@ -44,7 +48,8 @@
             }
         });
     }
-
+    var testawardod="";
+    var testactivityid="";
     function getaward() {
         var ss = { activityid: "429", phone: "13880825228" };
         var data = JSON.stringify(ss);
@@ -56,6 +61,34 @@
             success: function (data) {
                 alert(data.return_code);
                 alert(data.return_msg);
+                testawardod = return_info.AwardDetailId;
+                testactivityid = return_info.ActivityId;
+            }
+        });
+    }
+
+    function getaward1(){
+        $.ajax({
+            type: "get",
+            url: ' api/award/activity/'+testactivityid+'/id/'+testawardod+'/',
+            contentType: "application/json",
+            success: function (data) {
+                alert(data.return_code);
+                alert(data.return_msg);
+            }
+        });
+    }
+
+    function receive() {
+        var ss = { activityid: "465", awardid: "383702", phone: "13880825220" };
+        var data = JSON.stringify(ss);
+        $.ajax({
+            type: "post",
+            url: ' api/award/receive/phone ',
+            data: data,
+            contentType: "application/json",
+            success: function (data) {
+                
             }
         });
     }

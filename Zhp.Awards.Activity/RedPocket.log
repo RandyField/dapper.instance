@@ -103,3 +103,24 @@ Error Number:10054,State:0,Class:20,phone:13880825220，活动id:410
    在 Zhp.Awards.BLL.TRP_AwardReceive_BLL.GetAwards(String phone, String activityid, String& return_code, String& msg) 位置 e:\GitHub\Zhp.Awards.Phone\Zhp.Awards.BLL\TRP_AwardReceive_BLL.cs:行号 133
 ClientConnectionId:965d98e4-5231-43c1-be20-3bbaf473e2b4
 Error Number:10054,State:0,Class:20,phone:13880825220，活动id:429
+[2018-05-08 10:16:28,301]  8 -- ERROR -- Error [GetAward] -- 通过活动id与奖品id检索异常，异常信息:System.Data.SqlClient.SqlException (0x80131904): 'A' 附近有语法错误。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   在 Dapper.SqlMapper.ExecuteReaderImpl(IDbConnection cnn, CommandDefinition& command, CommandBehavior commandBehavior, IDbCommand& cmd)
+   在 Dapper.SqlMapper.ExecuteReader(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Zhp.Awards.DAL.BaseDAL.FindOne[T](String cmd, DynamicParameters param, Boolean flag) 位置 e:\GitHub\Zhp.Awards.Phone\Zhp.Awards.DAL\BaseDAL.cs:行号 279
+   在 Zhp.Awards.BLL.TRP_AwardReceive_BLL.GetAward(String activityid, String awardid, String& return_code, String& msg) 位置 e:\GitHub\Zhp.Awards.Phone\Zhp.Awards.BLL\TRP_AwardReceive_BLL.cs:行号 213
+ClientConnectionId:9913ed5d-8c28-4a78-8202-b7110a475923
+Error Number:102,State:1,Class:15,活动id:429，奖品id:369320

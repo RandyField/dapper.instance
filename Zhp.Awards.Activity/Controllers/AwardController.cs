@@ -1,11 +1,14 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Common;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Results;
 using Zhp.Awards.BLL;
 using Zhp.Awards.Common;
 using Zhp.Awards.Model;
@@ -72,10 +75,131 @@ namespace Zhp.Awards.Activity.Controllers
             else
             {
                 result.return_code = "ERROR";
-                result.return_msg = "参数不完整";
+                result.return_msg = "参数错误";
                 result.return_info = null;
             }
             result.return_msg = msg;
+            return result;
+        }
+
+        [Route("getaward/{activityid}")]
+        [HttpGet]
+        public JsonResult<AwardsInfoModel> GetAward(string activityid)
+        {
+            TRP_AwardReceive_BLL bll = TRP_AwardReceive_BLL.getInstance();
+
+            //请求奖品
+            AwardsInfoModel awardsModel = bll.GetAwardsInfo(activityid);
+
+            if (string.IsNullOrWhiteSpace(awardsModel.Class))
+            {
+                bll.Initialize(activityid);
+                //奖品初始化
+
+                awardsModel = bll.GetAwardsInfo(activityid);
+
+            }
+            awardsModel.id = DESEncrypt.Decrypt(awardsModel.id, ConfigurationManager.AppSettings["encryption"]);
+
+            return Json(awardsModel);
+        }
+
+        /// <summary>
+        /// 获取奖品详细信息
+        /// </summary>
+        /// <param name="activityid"></param>
+        /// <param name="awardid"></param>
+        /// <returns></returns>
+        [Route("activity/{activityid}/id/{awardid}")]
+        [HttpGet]
+        public ResponseResult GetAward(string activityid, string awardid)
+        {
+            string msg = "";
+
+            //返回实体
+            ResponseResult result = new ResponseResult();
+
+            if (!string.IsNullOrWhiteSpace(activityid)
+                && !string.IsNullOrWhiteSpace(awardid))
+            {
+                TRP_AwardReceive_BLL bll = TRP_AwardReceive_BLL.getInstance();
+
+                string return_code = "";
+
+
+                PhoneQueryModel model = bll.GetAward(activityid, awardid, ref return_code, ref msg);
+
+                if (return_code == "SUCCESS")
+                {
+                    result.return_code = return_code;
+                    result.return_info = model;
+                    RecordLog(activityid, string.Format("用户参与游戏:{0}，获取奖品:{1}，用户扫码领取,时间:{2}", "【老虎机】", model.AwardName, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
+                         "用户参与游戏：【老虎机】，获取奖品，扫码进入", HttpContext.Current.Request.UserHostAddress, HttpContext.Current.Request.Url.AbsoluteUri, model.ReceiveImage);
+                }
+                else
+                {
+                    result.return_code = return_code;
+                    result.return_info = null;
+                }
+            }
+            else
+            {
+                result.return_code = "ERROR";
+                result.return_msg = "参数错误";
+                result.return_info = null;
+            }
+
+            result.return_msg = msg;
+            return result;
+        }
+
+        /// <summary>
+        /// 通过手机号码领取奖品
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        [Route("receive/phone")]
+        [HttpPost]
+        public ResponseResult ReceiveByPhone([FromBody]JObject data)
+        {
+            string msg = "";
+
+            //返回实体
+            ResponseResult result = new ResponseResult();
+            if (data["phone"] != null
+                && data["activityid"] != null
+                && data["awardid"] != null)
+            {
+                TRP_AwardReceive_BLL bll = TRP_AwardReceive_BLL.getInstance();
+
+                string return_code = "";
+                string phone = data["phone"].ToString();
+                string activityid = data["activityid"].ToString();
+                string awardid = data["awardid"].ToString();
+
+
+                PhoneQueryModel model = bll.SavePhone(phone, activityid, awardid, ref return_code, ref msg);
+                if (model != null)
+                {
+                    result.return_code = return_code;
+                    result.return_msg = "";
+                    result.return_info = model;
+                    RecordLog(activityid, string.Format("用户参与游戏:{0}，获取奖品:{1}，用户扫码领取,输入手机号码：{2},时间:{3}", "【老虎机】", model.AwardName, phone, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
+                        "用户参与游戏：【老虎机】，获取奖品，扫码进入", HttpContext.Current.Request.UserHostAddress, HttpContext.Current.Request.Url.AbsoluteUri, model.ReceiveImage);
+                }
+                else
+                {
+                    result.return_code = return_code;
+                    result.return_msg = "";
+                    result.return_info = null;
+                }
+            }
+            else
+            {
+                result.return_code = "ERROR";
+                result.return_msg = "参数错误";
+                result.return_info = null;
+            }
             return result;
         }
 

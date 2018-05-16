@@ -16,6 +16,6 @@ E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.IDAL\bin\Release\Zhp.Awards.IDAL.dll
 E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.IDAL\bin\Release\Zhp.Awards.IDAL.pdb
 E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.IDAL\bin\Release\Dapper.dll
 E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.IDAL\bin\Release\Dapper.xml
-E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.IDAL\obj\Release\Zhp.Awards.IDAL.csprojResolveAssemblyReference.cache
 E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.IDAL\obj\Release\Zhp.Awards.IDAL.dll
 E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.IDAL\obj\Release\Zhp.Awards.IDAL.pdb
+E:\GitHub\Zhp.Awards.Phone\Zhp.Awards.IDAL\obj\Release\Zhp.Awards.IDAL.csprojResolveAssemblyReference.cache

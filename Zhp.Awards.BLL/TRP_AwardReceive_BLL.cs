@@ -188,6 +188,76 @@ namespace Zhp.Awards.BLL
         }
 
         /// <summary>
+        /// 获取flash前端已经请求过的奖品
+        /// </summary>
+        /// <param name="activityid"></param>
+        /// <param name="awardid"></param>
+        /// <param name="return_code"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        public PhoneQueryModel GetAward(string activityid, string awardid, ref string return_code, ref string msg)
+        {
+            PhoneQueryModel model = null;
+            try
+            {
+                DynamicParameters param = new DynamicParameters();
+                param.Add("ActivityId", activityid);
+                param.Add("AwardDetailId", awardid);
+
+                string querysql = @"SELECT A.ActivityId,A.AwardDetailId,C.AwardName,C.ReceiveImage,    
+                                    A.ReceiveTime,A.SubmitTime,A.Phone,A.OpenId   
+                                    FROM TRP_AwardReceive A LEFT JOIN  TRP_Award B ON A.AwardId=B.Id   
+                                    LEFT JOIN TRP_AwardUrl C ON B.AwardName=C.AwardName     
+                                                WHERE A.ActivityId=@ActivityId and A.AwardDetailId=@AwardDetailId";
+
+                model = idal.FindOne<PhoneQueryModel>(querysql, param, false);
+
+                return_code = "SUCCESS";
+
+                //奖品已回收
+                if (model == null)
+                {
+                    return_code = "HAD_RECYCLE";
+                }
+
+                //奖品还存在
+                else
+                {
+                    //奖品已输入手机号码
+                    if (model.Phone != null)
+                    {
+                        //奖品已领取
+                        return_code = "HAD_RECEIVED";
+                    }
+                    else
+                    {
+                        //领取时间不为空  二维码已扫
+                        if (model.SubmitTime != null)
+                        {
+                            return_code = "HAD_RECEIVED";
+                        }
+                        //领取时间为空  二维码置为已扫
+                        else
+                        {
+                            param.Add("SubmitTime", DateTime.Now);
+
+                            string updatesql = @"UPDATE TRP_AwardReceive SET  SubmitTime=@SubmitTime WHERE AwardDetailId=@AwardDetailId and ActivityId=@ActivityId";
+
+                            idal.ExcuteNonQuery<TRP_AwardReceive>(updatesql, param, false);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return_code = "FAIL";
+                msg = "SERVER_ERROR";
+                Logger.Error(string.Format("通过活动id与奖品id检索异常，异常信息:{0},活动id:{1}，奖品id:{2}", ex.ToString(), activityid, awardid));
+            }
+            return model;
+        }
+
+        /// <summary>
         /// 通过手机号码领取
         /// </summary>
         /// <param name="phone"></param>
@@ -221,6 +291,68 @@ namespace Zhp.Awards.BLL
 
 
                 model = idal.FindOne<PhoneQueryModel>(querysql, param, false);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(string.Format("根据手机号码领取奖品，异常信息:{0},phone:{1}，活动id:{2}", ex.ToString(), phone, activityid));
+            }
+            return model;
+        }
+
+        /// <summary>
+        /// 通过手机号码领取
+        /// </summary>
+        /// <param name="phone"></param>
+        /// <param name="activityid"></param>
+        /// <param name="awardid"></param>
+        /// <returns></returns>
+        public PhoneQueryModel SavePhone(string phone, string activityid, string awardid, ref string return_code, ref string msg)
+        {
+            PhoneQueryModel model = null;
+            bool success = false;
+            try
+            {
+                DynamicParameters param = new DynamicParameters();
+                param.Add("ActivityId", activityid);
+                
+
+                string querysql = @"SELECT A.ActivityId,A.AwardDetailId,C.AwardName,C.ReceiveImage,    
+                                    A.ReceiveTime,A.SubmitTime,A.Phone,A.OpenId   
+                                    FROM TRP_AwardReceive A LEFT JOIN  TRP_Award B ON A.AwardId=B.Id   
+                                    LEFT JOIN TRP_AwardUrl C ON B.AwardName=C.AwardName     
+                                                    WHERE A.ActivityId=@ActivityId and A.Phone=@Phone";
+
+
+                param.Add("Phone", phone);
+               
+                //根据活动id与手机号码查询
+                model = idal.FindOne<PhoneQueryModel>(querysql, param, false);
+
+                param.Add("AwardDetailId", awardid);
+                if (model != null)
+                {
+                    if (model.Phone == phone)
+                    {
+                        return_code = "ATTEND";
+                    }
+                    else
+                    {
+                        return_code = "HAD_RECEIVE";
+                    }
+                }
+
+                     
+                //第一次参加
+                else
+                {
+                    string updatesql = @"UPDATE TRP_AwardReceive SET  Phone=@Phone WHERE AwardDetailId=@AwardDetailId and ActivityId=@ActivityId";
+                    success = idal.ExcuteNonQuery<TRP_AwardReceive>(updatesql, param, false) > 0;
+                    //根据活动id与手机号码查询
+                    model = idal.FindOne<PhoneQueryModel>(querysql, param, false);
+                    return_code = "SUCCESS";
+                }
+
+
             }
             catch (Exception ex)
             {
